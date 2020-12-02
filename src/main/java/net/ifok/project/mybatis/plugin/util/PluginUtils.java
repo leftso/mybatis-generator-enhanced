@@ -1,4 +1,4 @@
-package net.ifok.project.mybatis.plugin;
+package net.ifok.project.mybatis.plugin.util;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;

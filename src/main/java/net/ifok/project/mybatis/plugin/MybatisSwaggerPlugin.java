@@ -14,7 +14,6 @@ import org.mybatis.generator.internal.util.StringUtility;
 
 import java.util.Date;
 import java.util.List;
-import static net.ifok.project.mybatis.plugin.PluginUtils.*;
 
 /**
  * @Description:  swagger插件

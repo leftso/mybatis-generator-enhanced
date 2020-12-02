@@ -1,20 +1,15 @@
 package net.ifok.project.mybatis.plugin;
 
-import org.eclipse.sisu.plexus.Roles;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
-import org.mybatis.generator.api.dom.java.Field;
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
 import org.mybatis.generator.api.dom.java.Interface;
 import org.mybatis.generator.api.dom.java.Method;
-import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.mybatis.generator.internal.util.JavaBeansUtil;
 
 import java.util.List;
 import java.util.Objects;
-
-import static net.ifok.project.mybatis.plugin.PluginUtils.isPrimaryKey;
 
 /**
  * @Description:  insert 返回主键给实体类
