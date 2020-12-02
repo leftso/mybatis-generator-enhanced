@@ -51,9 +51,8 @@
         </dependency>
     </dependencies>
 
-    <!--构建jar上传仓库-->
     <distributionManagement>
-        <!--中央仓库上传地址-->
+        <!--upload address -->
          <snapshotRepository>
              <id>maven-center</id>
              <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
@@ -74,8 +73,7 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-            <!--说明：上传中央库，必须有 GPG插件、javadoc插件、source插件-->
-            <!-- GPG 打包插件-->
+            <!-- GPG SIGN-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -89,7 +87,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- 源码 -->
+            <!-- SOURCE -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
