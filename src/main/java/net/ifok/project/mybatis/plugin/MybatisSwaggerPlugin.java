@@ -10,13 +10,12 @@ import org.mybatis.generator.api.dom.java.Interface;
 import org.mybatis.generator.api.dom.java.JavaElement;
 import org.mybatis.generator.api.dom.java.Method;
 import org.mybatis.generator.api.dom.java.TopLevelClass;
-import org.mybatis.generator.api.dom.xml.TextElement;
-import org.mybatis.generator.api.dom.xml.VisitableElement;
-import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.internal.util.StringUtility;
 
 import java.util.Date;
 import java.util.List;
+import static net.ifok.project.mybatis.plugin.PluginUtils.*;
+
 /**
  * @Description:  swagger插件
  * @Author: xq 
@@ -52,10 +51,9 @@ public class MybatisSwaggerPlugin extends PluginAdapter {
         // 生成字段注释
         genFieldComment(field, remarks);
         // 生成字段Swagger
-        genFieldAnnotation(field, remarks);
+        genFieldAnnotation(field,remarks, introspectedColumn);
         return true;
     }
-
     /**
      * 生成Mapper接口
      *
@@ -106,7 +104,6 @@ public class MybatisSwaggerPlugin extends PluginAdapter {
      */
     private void addMapperInterfaceAnnotations(Interface interfaze) {
         // 添加Mapper的import
-        interfaze.addImportedType(new FullyQualifiedJavaType("org.apache.ibatis.annotations.Mapper"));
         interfaze.addImportedType(new FullyQualifiedJavaType("org.springframework.stereotype.Repository"));
         // 添加Mapper的注解
 //        interfaze.addAnnotation("@Mapper");
@@ -164,7 +161,8 @@ public class MybatisSwaggerPlugin extends PluginAdapter {
      *
      * @author leftso
      */
-    private void genFieldAnnotation(Field field, String remarks) {
+    private void genFieldAnnotation(Field field, String remarks,IntrospectedColumn introspectedColumn) {
+        //swagger 字段注解
         field.addAnnotation("@ApiModelProperty(value = \"" + remarks + "\")");
     }
 
