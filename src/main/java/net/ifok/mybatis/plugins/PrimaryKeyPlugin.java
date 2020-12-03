@@ -1,4 +1,4 @@
-package net.ifok.project.mybatis.plugin;
+package net.ifok.mybatis.plugins;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
@@ -29,11 +29,18 @@ public class PrimaryKeyPlugin extends PluginAdapter {
         List<IntrospectedColumn> primaryKeyColumns = introspectedTable.getPrimaryKeyColumns();
         if (Objects.nonNull(primaryKeyColumns)&&primaryKeyColumns.size()>0){
             //取第一个，多个暂时无法实现
-            IntrospectedColumn introspectedColumn = primaryKeyColumns.get(0);
-            String actualColumnName = introspectedColumn.getActualColumnName();
-            String camelizeName = JavaBeansUtil.getCamelCaseString(actualColumnName,false);
-            method.addAnnotation("@Options(useGeneratedKeys = true,keyProperty = \"record."+camelizeName+"\"," +
-                    "keyColumn = \""+actualColumnName+"\")");
+            for (IntrospectedColumn primaryKeyColumn : primaryKeyColumns) {
+                boolean identity = primaryKeyColumn.isIdentity();
+                if (identity){
+                    String actualColumnName = primaryKeyColumn.getActualColumnName();
+                    String camelizeName = JavaBeansUtil.getCamelCaseString(actualColumnName,false);
+                    method.addAnnotation("@Options(useGeneratedKeys = true,keyProperty = \"record."+camelizeName+"\"," +
+                            "keyColumn = \""+actualColumnName+"\")");
+                    //只处理第一个匹配的自增长主键
+                    break;
+                }
+
+            }
         }
         return true;
     }

@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.ifok.plugin</groupId>
-    <artifactId>mybatis-swagger-plugin</artifactId>
-    <version>1.0.1</version>
-    <name>Mybatis Swagger plugin</name>
+    <artifactId>mybatis-generator-enhanced</artifactId>
+    <version>1.0.2</version>
+    <name>Mybatis Generator Enhanced</name>
     <description>
-        Mybatis Generator Swagger annotation Plugin
+        Mybatis Generator Enhanced Plugin,Support Swagger Model Annotation,Identity PrimaryKey Return Id,Java Comments.etc..
     </description>
-    <url>https://github.com/leftso/mybatis-swagger-plugin</url>
+    <url>https://github.com/leftso/mybatis-generator-enhanced</url>
     <scm>
-        <url>https://github.com/leftso/mybatis-swagger-plugin.git</url>
+        <url>https://github.com/leftso/mybatis-generator-enhanced.git</url>
     </scm>
     <licenses>
         <license>
