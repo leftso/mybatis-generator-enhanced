@@ -90,6 +90,8 @@ public class SwaggerPlugin extends PluginAdapter {
      */
     private void genFieldAnnotation(Field field, String remarks,IntrospectedColumn introspectedColumn) {
         //swagger 字段注解
+        //特殊字符处理
+        remarks=remarks.replace("\"","\\\"");
         field.addAnnotation("@ApiModelProperty(value = \"" + remarks + "\")");
     }
 
