@@ -30,7 +30,7 @@ public class PrimaryKeyPlugin extends PluginAdapter {
         if (Objects.nonNull(primaryKeyColumns)&&primaryKeyColumns.size()>0){
             //取第一个，多个暂时无法实现
             for (IntrospectedColumn primaryKeyColumn : primaryKeyColumns) {
-                boolean identity = primaryKeyColumn.isIdentity();
+                boolean identity = primaryKeyColumn.isAutoIncrement();
                 if (identity){
                     String actualColumnName = primaryKeyColumn.getActualColumnName();
                     String camelizeName = JavaBeansUtil.getCamelCaseString(actualColumnName,false);
