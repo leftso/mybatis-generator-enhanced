@@ -11,7 +11,7 @@ pom.xml引入
                     <dependency>
                         <groupId>net.ifok.plugin</groupId>
                         <artifactId>mybatis-generator-enhanced</artifactId>
-                        <version>1.0.2</version>
+                        <version>1.0.4</version>
                     </dependency>
                 </dependencies>
                 <configuration>
